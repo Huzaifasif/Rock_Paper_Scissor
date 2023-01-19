@@ -1,0 +1,63 @@
+import random
+l=["Rock", "Scissor", "Paper"]
+"""
+Rock vs Paper ->Paper wins
+Rock vs Scissor-> Rock wins
+Paper vs Scissor->Scissor wins
+
+"""
+while True:
+    userinput=int(input('''
+    Game Start...
+    1 Yes
+    2 No
+    '''))
+    ccount=0
+    ucount=0
+    if userinput==1:
+        for a in range (1,6):
+            UserInput=int(input('''
+The select the number between 1 to 3
+1. Rock
+2. Scissor
+3. Paper
+'''))
+            if UserInput==1:
+                uchoice="Rock"
+            elif UserInput==2:
+                uchoice="Scissor"
+            elif UserInput==3:
+                uchoice="Paper"
+            ComputerChoice=random.choice(l)
+            if ComputerChoice==uchoice:
+                print ("Computer Value;-", ComputerChoice)
+                print ("You selected:-", uchoice)
+                print ("Game Draw or Tie")
+                ucount=ucount+1
+                ccount=ccount+1
+   
+            elif (uchoice=="Rock" and ComputerChoice=="Scissor") or (uchoice=="Paper" and ComputerChoice=="Rock") or (uchoice == "Scissor" and ComputerChoice=="Paper"):
+                print ("Computer Value;-", ComputerChoice)
+                print ("You selected:-", uchoice)
+                print ("You Win")
+                ucount=ucount+1
+               
+            else:
+                print ("Computer Value;-", ComputerChoice)
+                print ("You selected:-", uchoice)
+                print ("Computer Wins")
+                ccount=ccount+1
+        if ucount==ccount:
+            print ("Series Dawn....")
+            print ("Your wining count:-", ucount)
+            print ("Computer wining count:-", ccount)
+        elif ucount>ccount:
+            print ("You Won this series....")
+            print ("Your wining count:-", ucount)
+            print ("Computer wining count:-", ccount)
+        else:
+            print ("Computer Won this series....")
+            print ("Your wining count:-", ucount)
+            print ("Computer wining count:-", ccount)
+    else:
+        break
